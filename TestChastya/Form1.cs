@@ -17,7 +17,9 @@ namespace TestChastya
         MySqlConnection conMy;
         BDConnection con;
         int number = 1;
+        int numberQuestion = 1;
         double score = 0;
+        MySqlCommand command = new MySqlCommand();
 
         public Form1()
         {
@@ -26,7 +28,6 @@ namespace TestChastya
             {
                 con = new BDConnection("Students", "127.0.0.1", "3306", "root", "");
                 con.OpenConnection();
-
             }
         }
 
@@ -40,6 +41,24 @@ namespace TestChastya
             number++;
         }
 
+        public void showQuestion()
+        {
+            command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = " + numberQuestion, conMy);
+            radioBtnVariant1.Text = command.ExecuteScalar().ToString();
+            numberQuestion++;
+            command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = " + numberQuestion, conMy);
+            radioBtnVariant2.Text = command.ExecuteScalar().ToString();
+            numberQuestion++;
+            command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = " + numberQuestion, conMy);
+            radioBtnVariant3.Text = command.ExecuteScalar().ToString();
+            numberQuestion++;
+            command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = " + numberQuestion, conMy);
+            radioBtnVariant4.Text = command.ExecuteScalar().ToString();
+            numberQuestion++;
+            questionsScore();
+            updateRadioBtn();
+        }
+
         private void numberQuestions()
         {
             con = new BDConnection("question", "127.0.0.1", "3306", "root", "");
@@ -48,148 +67,40 @@ namespace TestChastya
             switch (number)
             {
                 case 1:
-                    MySqlCommand command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 1", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 2", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 3", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 4", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 2:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 5", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 6", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 7", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 8", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 3:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 9", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 10", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 11", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 12", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 4:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 13", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 14", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 15", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 16", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 5:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 17", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 18", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 19", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 20", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 6:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 21", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 22", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 23", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 24", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 7:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 25", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 26", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 27", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 28", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 8:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 29", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 30", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 31", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 32", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 9:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 33", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 34", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 35", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 36", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 10:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 37", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 38", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 39", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 40", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 11:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 41", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 42", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 43", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 44", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
                 case 12:
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 45", conMy);
-                    radioBtnVariant1.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 46", conMy);
-                    radioBtnVariant2.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 47", conMy);
-                    radioBtnVariant3.Text = command.ExecuteScalar().ToString();
-                    command = new MySqlCommand("SELECT Question FROM questions WHERE idQuestions = 48", conMy);
-                    radioBtnVariant4.Text = command.ExecuteScalar().ToString();
-                    questionsScore();
-                    updateRadioBtn();
+                    showQuestion();
                     return;
             }
             con.CloseConnection();
